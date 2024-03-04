@@ -21,3 +21,16 @@ services:
         - ALLOWED_HOSTS=localhost,127.0.0.1
       depends_on:
         - redis
+
+  celery:
+    container_name: celery
+    build:
+      context: ./django_celery_trial1
+    volumes:
+      - ./django_celery_trial1:/usr/src/app
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=74849fjfkf93039fjfkf
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+    depends_on:
+      - redis
