@@ -9,7 +9,7 @@ services:
       container_name: django
       build:
         context: ./django_celery_trial1
-#        dockerfile: Dockerfile
+#
       command: python manage.py runserver 0.0.0.0:8000
       volumes:
         - ./django_celery_trial1:/usr/src/app
