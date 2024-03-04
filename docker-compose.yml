@@ -1,7 +1,11 @@
 version: '3.8'
 
 services:
-    django:
+
+  redis:
+    image: redis:7.0.11-alpine
+
+  django:
       container_name: django
       build:
         context: ./django_celery_trial1
@@ -15,3 +19,5 @@ services:
         - DEBUG=1
         - SECRET_KEY=74849fjfkf93039fjfkf
         - ALLOWED_HOSTS=localhost,127.0.0.1
+      depends_on:
+        - redis
